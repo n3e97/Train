@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+</body>
+<script>
+
+ /*阶乘*/
+function factorial(num){
+  
+  if(num<=1){
+    return 1;
+  }else{
+    return num*factorial(num-1)
+  }
+}
+console.log('4的阶乘'+'='+factorial(4));
+
+/*累加*/
+function sum(n){
+	if(n<1){
+		return 0
+	}else{
+		return sum(n-1)+n;
+		
+	}	
+}
+console.log('4的累加'+'='+sum(4))
+
+/*求1,1,2,4,7,11,16......前n项和*/
+function fn(n){
+	if(n==1){
+		return 1;
+	}else{
+		return fn(n-1)+n-2;
+	}
+}
+
+function Accumulate(n){
+	if(n==1) return 1;
+	return Accumulate(n-1)+fn(n);
+}
+console.log('前五项和'+'='+Accumulate(5))
+
+
+/*斐波那契数列*/
+var count =0;	
+function feb1(n){
+	count++
+	if(n==2||n==1) return 1;
+	return feb1(n-2)+feb1(n-1);//第n项值
+}
+
+//优化
+var data=[1,1];
+function feb2(n){
+	count++
+	var v=data[n];
+	if(data[n]===undefined){
+		v=feb2(n-1)+feb2(n-2);
+		data[n]=v;
+	}
+	return v
+}
+feb2(10)
+console.log('count'+'='+count)
+</script>
+</html>
